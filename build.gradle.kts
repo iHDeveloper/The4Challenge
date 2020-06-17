@@ -11,8 +11,10 @@ plugins {
 group = "me.ihdeveloper"
 version = "0.1"
 
+// The server to run the plugins on it
 val server = Server()
 
+// The build tools to use the Bukkit api
 val buildTools = BuildTools(
 
         // Server Version
@@ -52,10 +54,12 @@ subprojects {
 
         shadowJar {
 
+            // If there's no version implemented then we give a default version to the project
             if (archiveVersion.orNull == null) {
                 archiveVersion.set("0.1")
             }
 
+            // Change the generated archive name
             val name = "${archiveBaseName.get()}-${archiveVersion.get()}.${archiveExtension.get()}"
             archiveFileName.set(name)
         }
@@ -81,6 +85,9 @@ subprojects {
             }
         }
 
+        /**
+         * Copy the generated plugin jar of the project to the server plugins folder
+         */
         register("copy-to-server") {
             dependsOn("build")
 
@@ -122,23 +129,21 @@ tasks {
         server.delete()
     }
 
+    /**
+     * Clean the plugins jars in the plugins folder of the server
+     */
     register("clean-plugins") {
-
         doLast {
             for (file in server.plugins.listFiles()) {
-
                 if (!file.name.endsWith(".jar"))
                     continue
-
-
                 file.delete()
             }
-
         }
     }
 
     /**
-     *  Setup the workspace to develop the plugin
+     * Setup the workspace to develop the plugin
      */
     register("setup") {
 
@@ -259,11 +264,11 @@ tasks {
         }
     }
 
+    /**
+     * Run the server
+     */
     register("run") {
-
         doLast {
-            val server = server
-
             printIntro()
             logger.lifecycle("> Starting the server...")
             logger.lifecycle("")
