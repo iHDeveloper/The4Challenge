@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "me.ihdeveloper"
-version = "0.1"
+version = "0.0"
 
 // The server to run the plugins on it
 val server = Server()
