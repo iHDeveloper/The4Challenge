@@ -1,4 +1,4 @@
 # The4Challenge
-The four games in one week challenge
+Developing four Minecraft minigames in one week! :o
 
 **Coming Soon**
