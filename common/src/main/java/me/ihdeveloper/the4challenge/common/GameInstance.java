@@ -1,5 +1,9 @@
 package me.ihdeveloper.the4challenge.common;
 
+import me.ihdeveloper.the4challenge.common.system.CommandSystem;
+import me.ihdeveloper.the4challenge.common.system.ConfigurationSystem;
+import me.ihdeveloper.the4challenge.common.system.schedule.CountdownSystem;
+import me.ihdeveloper.the4challenge.common.system.schedule.ScoreboardSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
@@ -10,7 +14,12 @@ public abstract class GameInstance extends GameEntity implements Runnable {
 
     private JavaPlugin plugin;
     private GameLogger logger;
-    private GameSystem[] systems = new GameSystem[] {};
+    private GameSystem[] systems = new GameSystem[] {
+            new ConfigurationSystem(this),
+            new CommandSystem(this),
+            new CountdownSystem(this),
+            new ScoreboardSystem(this)
+    };
     private BukkitTask task;
 
     public GameInstance(String name, JavaPlugin plugin) {

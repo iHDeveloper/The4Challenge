@@ -1,4 +1,4 @@
-package me.ihdeveloper.the4challenge.common.system;
+package me.ihdeveloper.the4challenge.common.system.schedule;
 
 import me.ihdeveloper.the4challenge.common.GameEntity;
 import me.ihdeveloper.the4challenge.common.GameInstance;
@@ -6,14 +6,13 @@ import me.ihdeveloper.the4challenge.common.component.Countdown;
 import me.ihdeveloper.the4challenge.common.event.countdown.CountdownFinishEvent;
 import me.ihdeveloper.the4challenge.common.event.countdown.CountdownStartEvent;
 import me.ihdeveloper.the4challenge.common.event.countdown.CountdownUpdateEvent;
+import me.ihdeveloper.the4challenge.common.system.ScheduledSystem;
 import org.bukkit.Bukkit;
 
 public final class CountdownSystem extends ScheduledSystem {
 
     public CountdownSystem(GameInstance instance) {
         super(instance);
-
-        processAll(instance);
     }
 
     @Override
@@ -46,9 +45,7 @@ public final class CountdownSystem extends ScheduledSystem {
     }
 
     @Override
-    public void dispose() {
-        processAll(getInstance());
-    }
+    public void dispose() { }
 
     private void complete(Countdown component) {
         Bukkit.getPluginManager().callEvent(new CountdownFinishEvent(component.getParent()));

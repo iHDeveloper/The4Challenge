@@ -1,9 +1,10 @@
-package me.ihdeveloper.the4challenge.common.system;
+package me.ihdeveloper.the4challenge.common.system.schedule;
 
 import me.ihdeveloper.the4challenge.common.GameEntity;
 import me.ihdeveloper.the4challenge.common.GameInstance;
 import me.ihdeveloper.the4challenge.common.component.BukkitPlayer;
 import me.ihdeveloper.the4challenge.common.component.BukkitScoreboard;
+import me.ihdeveloper.the4challenge.common.system.ScheduledSystem;
 import org.bukkit.Bukkit;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
