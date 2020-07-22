@@ -42,6 +42,10 @@ public class Countdown extends GameComponent {
         this.remaining--;
     }
 
+    public void done() {
+        this.status = Status.STOPPED;
+    }
+
     public Status getStatus() {
         return status;
     }

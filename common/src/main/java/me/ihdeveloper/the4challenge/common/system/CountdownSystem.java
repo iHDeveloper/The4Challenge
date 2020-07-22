@@ -52,5 +52,6 @@ public final class CountdownSystem extends ScheduledSystem {
 
     private void complete(Countdown component) {
         Bukkit.getPluginManager().callEvent(new CountdownFinishEvent(component.getParent()));
+        component.done();
     }
 }
