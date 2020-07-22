@@ -5,7 +5,7 @@ public abstract class GameSystem {
     public enum Type {
         STATIC,
         LAZY,
-        SCHEDULE;
+        SCHEDULE
     }
 
     private GameInstance instance;

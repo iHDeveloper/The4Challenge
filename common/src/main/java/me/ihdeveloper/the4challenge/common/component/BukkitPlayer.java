@@ -10,13 +10,44 @@ import java.util.UUID;
 public class BukkitPlayer extends GameComponent {
 
     private UUID uniqueId;
+    private int level = 0;
+    private boolean allowDamage = false;
+    private boolean allowHunger = false;
 
     public BukkitPlayer(GameEntity parent, UUID uniqueId) {
         super(parent);
         this.uniqueId = uniqueId;
     }
 
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setAllowDamage(boolean allowDamage) {
+        this.allowDamage = allowDamage;
+    }
+
+    public void setAllowHunger(boolean allowHunger) {
+        this.allowHunger = allowHunger;
+    }
+
+    public boolean isAllowDamage() {
+        return allowDamage;
+    }
+
+    public boolean isAllowHunger() {
+        return allowHunger;
+    }
+
+    public UUID getUniqueId() {
+        return uniqueId;
+    }
+
     public Player getPlayer() {
         return Bukkit.getPlayer(this.uniqueId);
+    }
+
+    public int getLevel() {
+        return level;
     }
 }
