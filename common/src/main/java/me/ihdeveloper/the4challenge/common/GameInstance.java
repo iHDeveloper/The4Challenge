@@ -29,11 +29,13 @@ public abstract class GameInstance extends GameEntity implements Runnable {
     };
     private BukkitTask task;
     private Map<UUID, GameEntity> players = new HashMap<>();
+    private int maxPlayers = 5;
 
-    public GameInstance(String name, JavaPlugin plugin) {
+    public GameInstance(String name, int maxPlayers, JavaPlugin plugin) {
         super(name, (short) 1);
         this.plugin = plugin;
         this.logger = new GameLogger(name);
+        this.maxPlayers = maxPlayers;
     }
 
     public void add(GameEntity entity) {
@@ -85,8 +87,12 @@ public abstract class GameInstance extends GameEntity implements Runnable {
         return players.get(uuid);
     }
 
-    public Collection<GameEntity> players() {
+    public Collection<GameEntity> getPlayers() {
         return players.values();
+    }
+
+    public int getMaxPlayers() {
+        return maxPlayers;
     }
 
     private void processAll(GameSystem.Type type, boolean dispose) {

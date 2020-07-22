@@ -26,6 +26,11 @@ public class Countdown extends GameComponent {
         this.update();
     }
 
+    public void stop() {
+        this.status = Status.STOPPED;
+        this.update();
+    }
+
     public void skip() {
         this.remaining = 0;
         this.status = Status.SKIPPED;

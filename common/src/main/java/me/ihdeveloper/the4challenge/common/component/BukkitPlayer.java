@@ -21,14 +21,17 @@ public class BukkitPlayer extends GameComponent {
 
     public void setLevel(int level) {
         this.level = level;
+        this.update();
     }
 
     public void setAllowDamage(boolean allowDamage) {
         this.allowDamage = allowDamage;
+        this.update();
     }
 
     public void setAllowHunger(boolean allowHunger) {
         this.allowHunger = allowHunger;
+        this.update();
     }
 
     public boolean isAllowDamage() {

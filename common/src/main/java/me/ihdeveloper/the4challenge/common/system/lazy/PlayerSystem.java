@@ -3,6 +3,7 @@ package me.ihdeveloper.the4challenge.common.system.lazy;
 import me.ihdeveloper.the4challenge.common.GameEntity;
 import me.ihdeveloper.the4challenge.common.GameInstance;
 import me.ihdeveloper.the4challenge.common.component.BukkitPlayer;
+import me.ihdeveloper.the4challenge.common.component.BukkitScoreboard;
 import me.ihdeveloper.the4challenge.common.event.player.GameJoinEvent;
 import me.ihdeveloper.the4challenge.common.event.player.GameLeaveEvent;
 import me.ihdeveloper.the4challenge.common.system.ScheduledLazySystem;
@@ -12,6 +13,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import static org.bukkit.ChatColor.*;
 
 public class PlayerSystem extends ScheduledLazySystem {
 
@@ -23,6 +25,7 @@ public class PlayerSystem extends ScheduledLazySystem {
     public void onJoin(PlayerJoinEvent event) {
         GameEntity entity = new GameEntity(event.getPlayer().getName());
         entity.add(new BukkitPlayer(entity, event.getPlayer().getUniqueId()));
+        entity.add(new BukkitScoreboard(entity, YELLOW + "" + BOLD + "GAME"));
         getInstance().add(entity);
         Bukkit.getPluginManager().callEvent(new GameJoinEvent(entity));
     }
