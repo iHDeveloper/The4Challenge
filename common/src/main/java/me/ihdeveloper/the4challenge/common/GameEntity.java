@@ -34,6 +34,13 @@ public class GameEntity {
         this.components.put(component.getClass(), component);
     }
 
+    public <T extends GameComponent> T get(Class<T> componentClass) {
+        GameComponent component = components.get(componentClass);
+        if (component == null)
+            return null;
+        return componentClass.cast(component);
+    }
+
     public void remove(int index) {
         this.children.remove(index);
     }

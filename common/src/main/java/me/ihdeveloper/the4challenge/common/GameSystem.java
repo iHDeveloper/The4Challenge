@@ -9,6 +9,14 @@ public abstract class GameSystem {
         this.instance = instance;
     }
 
+    protected void processAll(GameEntity parent) {
+        for (GameEntity entity : parent.getChildren()) {
+            this.process(entity);
+
+            this.processAll(entity);
+        }
+    }
+
     protected GameInstance getInstance() {
         return instance;
     }

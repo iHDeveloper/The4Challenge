@@ -8,16 +8,14 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;
 
 public abstract class ScheduledSystem extends GameSystem implements Runnable {
-    private Plugin plugin;
     private BukkitTask task;
 
     public ScheduledSystem(GameInstance instance, Plugin plugin) {
         super(instance);
-        this.plugin = plugin;
     }
 
     public void start(long later, long repeat) {
-        task = Bukkit.getScheduler().runTaskTimer(plugin, this, later, repeat);
+        task = Bukkit.getScheduler().runTaskTimer(getInstance().getPlugin(), this, later, repeat);
     }
 
     public void stop() {

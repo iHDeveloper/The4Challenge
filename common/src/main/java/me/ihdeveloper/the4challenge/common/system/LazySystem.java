@@ -16,10 +16,4 @@ public abstract class LazySystem extends GameSystem implements Listener {
 
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
-
-    protected void processAll() {
-        for (GameEntity entity : getInstance().getChildren()) {
-            this.process(entity);
-        }
-    }
 }
