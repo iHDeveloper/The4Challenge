@@ -9,12 +9,20 @@ public abstract class GameComponent {
         this.parent = parent;
     }
 
-    protected void init() {
+    public void init() {
         this.created = true;
     }
 
     protected void update() {
         this.updated = true;
+    }
+
+    public boolean isCreated() {
+        return created;
+    }
+
+    public boolean isUpdated() {
+        return updated;
     }
 
     public GameEntity getParent() {

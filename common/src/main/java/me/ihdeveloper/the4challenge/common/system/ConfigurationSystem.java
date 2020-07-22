@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public final class ConfigurationSystem extends GameSystem {
+    private boolean save = false;
 
     public ConfigurationSystem(GameInstance instance) {
         super(instance);
@@ -27,7 +28,11 @@ public final class ConfigurationSystem extends GameSystem {
         File file = new File(getInstance().getPlugin().getDataFolder(), name);
         try {
             file.createNewFile();
-            component.getConfiguration().load(file);
+
+            if (save)
+                component.getConfiguration().save(file);
+            else
+                component.getConfiguration().load(file);
         } catch (InvalidConfigurationException e) {
             getLogger().error("Failed to read configuration: " + name);
             e.printStackTrace();
@@ -42,6 +47,8 @@ public final class ConfigurationSystem extends GameSystem {
 
     @Override
     public void dispose() {
+        save = true;
+
         processAll(getInstance());
     }
 }

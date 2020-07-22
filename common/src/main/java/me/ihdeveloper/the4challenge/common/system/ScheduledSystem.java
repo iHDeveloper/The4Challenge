@@ -4,13 +4,12 @@ import me.ihdeveloper.the4challenge.common.GameEntity;
 import me.ihdeveloper.the4challenge.common.GameInstance;
 import me.ihdeveloper.the4challenge.common.GameSystem;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;
 
 public abstract class ScheduledSystem extends GameSystem implements Runnable {
     private BukkitTask task;
 
-    public ScheduledSystem(GameInstance instance, Plugin plugin) {
+    public ScheduledSystem(GameInstance instance) {
         super(instance);
     }
 
