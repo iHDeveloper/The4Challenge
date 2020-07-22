@@ -75,6 +75,10 @@ public abstract class GameInstance extends GameEntity implements Runnable {
         processAll(GameSystem.Type.SCHEDULE, false);
     }
 
+    public void setPlugin(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+
     public JavaPlugin getPlugin() {
         return plugin;
     }

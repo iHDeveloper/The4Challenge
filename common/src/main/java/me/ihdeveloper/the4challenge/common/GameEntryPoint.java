@@ -2,7 +2,7 @@ package me.ihdeveloper.the4challenge.common;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class GameEntryPoint<E extends GameInstance> extends JavaPlugin {
+public class GameEntryPoint<E extends GameInstance> extends JavaPlugin {
 
     private E instance;
 
@@ -18,5 +18,9 @@ public final class GameEntryPoint<E extends GameInstance> extends JavaPlugin {
     @Override
     public void onDisable() {
         instance.stop();
+    }
+
+    public E getInstance() {
+        return instance;
     }
 }
