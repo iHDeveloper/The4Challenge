@@ -14,8 +14,7 @@ public final class ConfigurationSystem extends GameSystem {
     private boolean save = false;
 
     public ConfigurationSystem(GameInstance instance) {
-        super(instance);
-        processAll(instance);
+        super(instance, Type.STATIC);
     }
 
     @Override
@@ -48,7 +47,5 @@ public final class ConfigurationSystem extends GameSystem {
     @Override
     public void dispose() {
         save = true;
-
-        processAll(getInstance());
     }
 }

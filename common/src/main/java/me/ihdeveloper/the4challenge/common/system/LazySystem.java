@@ -12,7 +12,7 @@ public abstract class LazySystem extends GameSystem implements Listener {
     private BukkitTask task;
 
     public LazySystem(GameInstance instance, Plugin plugin) {
-        super(instance);
+        super(instance, Type.LAZY);
 
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }

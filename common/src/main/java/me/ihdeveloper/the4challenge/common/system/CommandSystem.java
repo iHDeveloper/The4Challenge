@@ -10,9 +10,7 @@ public class CommandSystem extends GameSystem {
     private boolean load = true;
 
     public CommandSystem(GameInstance instance) {
-        super(instance);
-
-        processAll(instance);
+        super(instance, Type.STATIC);
     }
 
     @Override
@@ -31,7 +29,5 @@ public class CommandSystem extends GameSystem {
     @Override
     public void dispose() {
         load = false;
-
-        processAll(getInstance());
     }
 }

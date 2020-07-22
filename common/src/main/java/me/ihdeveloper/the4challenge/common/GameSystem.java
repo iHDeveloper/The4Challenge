@@ -2,19 +2,23 @@ package me.ihdeveloper.the4challenge.common;
 
 public abstract class GameSystem {
 
-    private GameInstance instance;
-    private GameLogger logger = new GameLogger(this.getClass().getName());
-
-    public GameSystem(GameInstance instance) {
-        this.instance = instance;
+    public enum Type {
+        STATIC,
+        LAZY,
+        SCHEDULE;
     }
 
-    protected void processAll(GameEntity parent) {
-        for (GameEntity entity : parent.getChildren()) {
-            this.process(entity);
+    private GameInstance instance;
+    private Type type;
+    private GameLogger logger = new GameLogger(this.getClass().getName());
 
-            this.processAll(entity);
-        }
+    public GameSystem(GameInstance instance, Type type) {
+        this.instance = instance;
+        this.type = type;
+    }
+
+    public Type getType() {
+        return type;
     }
 
     protected GameInstance getInstance() {
