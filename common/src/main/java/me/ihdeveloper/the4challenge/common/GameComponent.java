@@ -17,6 +17,10 @@ public abstract class GameComponent {
         this.updated = true;
     }
 
+    public void done() {
+        this.updated = false;
+    }
+
     public boolean isCreated() {
         return created;
     }

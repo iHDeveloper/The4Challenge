@@ -84,6 +84,7 @@ public class PlayerSystem extends ScheduledLazySystem {
             component.init();
 
         component.getPlayer().setLevel(component.getLevel());
+        component.done();
     }
 
     @Override

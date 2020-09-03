@@ -48,6 +48,7 @@ public class Countdown extends GameComponent {
     }
 
     public void done() {
+        super.done();
         this.status = Status.STOPPED;
     }
 

@@ -66,6 +66,7 @@ public final class ScoreboardSystem extends ScheduledSystem {
 
             scoreboard.getObjective(DisplaySlot.SIDEBAR).getScore(title).setScore(order);
         }
+        component.done();
     }
 
     @Override
